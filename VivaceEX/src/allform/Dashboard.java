@@ -1096,6 +1096,18 @@ public class Dashboard extends javax.swing.JFrame {
         pengaturanbtn = new javax.swing.JPanel();
         keluarbtn = new javax.swing.JPanel();
         keluarmenu = new javax.swing.JLabel();
+        DASHBOARD = new javax.swing.JPanel();
+        dashboardpic = new javax.swing.JLabel();
+        angkapenjualan1hr = new javax.swing.JLabel();
+        textpenjualan1hr = new javax.swing.JLabel();
+        angkastok = new javax.swing.JLabel();
+        textstok = new javax.swing.JLabel();
+        angkatotalpembelian = new javax.swing.JLabel();
+        texttotalpembelian = new javax.swing.JLabel();
+        angkajumlah = new javax.swing.JLabel();
+        textjumlah = new javax.swing.JLabel();
+        textgrafik = new javax.swing.JLabel();
+        bgDashboard = new javax.swing.JLabel();
         PRODUKMASUK = new javax.swing.JPanel();
         idprodukmasuktext = new javax.swing.JTextField();
         idprodukmasukfield = new javax.swing.JTextField();
@@ -1135,7 +1147,6 @@ public class Dashboard extends javax.swing.JFrame {
         caristbtn = new javax.swing.JPanel();
         eyehide = new javax.swing.JLabel();
         eyeshow = new javax.swing.JLabel();
-        tglst = new com.toedter.calendar.JDateChooser();
         hakaksescb = new javax.swing.JComboBox<>();
         jPane2 = new javax.swing.JScrollPane();
         tabelsetting = new javax.swing.JTable();
@@ -1155,8 +1166,6 @@ public class Dashboard extends javax.swing.JFrame {
         bgDatabase = new javax.swing.JLabel();
         LAPORANSELECT2 = new javax.swing.JPanel();
         laporanpic2 = new javax.swing.JLabel();
-        laporansmtgl1field = new com.toedter.calendar.JDateChooser();
-        laporansmtgl2field = new com.toedter.calendar.JDateChooser();
         carilsmfield = new javax.swing.JTextField();
         tampilkanlpjbtn1 = new javax.swing.JPanel();
         carilpjbtn1 = new javax.swing.JPanel();
@@ -1168,8 +1177,6 @@ public class Dashboard extends javax.swing.JFrame {
         LAPORANSELECT1 = new javax.swing.JPanel();
         laporanpic1 = new javax.swing.JLabel();
         carilpjfield = new javax.swing.JTextField();
-        laporanpjtgl1field = new com.toedter.calendar.JDateChooser();
-        laporanpjtgl2field = new com.toedter.calendar.JDateChooser();
         tampilkanlpjbtn = new javax.swing.JPanel();
         carilpjbtn = new javax.swing.JPanel();
         exportlpjbtn = new javax.swing.JPanel();
@@ -1246,18 +1253,6 @@ public class Dashboard extends javax.swing.JFrame {
         jPane = new javax.swing.JScrollPane();
         tabelbarang = new javax.swing.JTable();
         bgBarang = new javax.swing.JLabel();
-        DASHBOARD = new javax.swing.JPanel();
-        dashboardpic = new javax.swing.JLabel();
-        angkapenjualan1hr = new javax.swing.JLabel();
-        textpenjualan1hr = new javax.swing.JLabel();
-        angkastok = new javax.swing.JLabel();
-        textstok = new javax.swing.JLabel();
-        angkatotalpembelian = new javax.swing.JLabel();
-        texttotalpembelian = new javax.swing.JLabel();
-        angkajumlah = new javax.swing.JLabel();
-        textjumlah = new javax.swing.JLabel();
-        textgrafik = new javax.swing.JLabel();
-        bgDashboard = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vivace Music Application");
@@ -1479,6 +1474,59 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         getContentPane().add(keluarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 920, -1, -1));
+
+        DASHBOARD.setOpaque(false);
+        DASHBOARD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dashboardpic.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 30)); // NOI18N
+        dashboardpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/dashboardpic1.png"))); // NOI18N
+        dashboardpic.setText("     Dashboard");
+        DASHBOARD.add(dashboardpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 330, 50));
+
+        angkapenjualan1hr.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        angkapenjualan1hr.setText("Rp.0,0");
+        DASHBOARD.add(angkapenjualan1hr, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 410, 50));
+
+        textpenjualan1hr.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        textpenjualan1hr.setForeground(new java.awt.Color(130, 130, 130));
+        textpenjualan1hr.setText("Penjualan Selama Satu Hari");
+        DASHBOARD.add(textpenjualan1hr, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 260, -1));
+
+        angkastok.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        angkastok.setText("0");
+        DASHBOARD.add(angkastok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 240, 410, 50));
+
+        textstok.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        textstok.setForeground(new java.awt.Color(130, 130, 130));
+        textstok.setText("Stok Barang Total");
+        DASHBOARD.add(textstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 300, 260, -1));
+
+        angkatotalpembelian.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        angkatotalpembelian.setText("0 ORANG");
+        DASHBOARD.add(angkatotalpembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, 410, 50));
+
+        texttotalpembelian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        texttotalpembelian.setForeground(new java.awt.Color(130, 130, 130));
+        texttotalpembelian.setText("Total Pembeli Hari Ini");
+        DASHBOARD.add(texttotalpembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 260, -1));
+
+        angkajumlah.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        angkajumlah.setText("0");
+        DASHBOARD.add(angkajumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 480, 410, 50));
+
+        textjumlah.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        textjumlah.setForeground(new java.awt.Color(130, 130, 130));
+        textjumlah.setText("Jumlah Barang Masuk Hari Ini");
+        DASHBOARD.add(textjumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 540, 260, -1));
+
+        textgrafik.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        textgrafik.setText("Grafik Penjulan Selama Satu Minggu");
+        DASHBOARD.add(textgrafik, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 740, 630, 50));
+
+        bgDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DS1.png"))); // NOI18N
+        DASHBOARD.add(bgDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, -1));
+
+        getContentPane().add(DASHBOARD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1010));
 
         PRODUKMASUK.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1867,15 +1915,6 @@ public class Dashboard extends javax.swing.JFrame {
         });
         SETTING.add(eyeshow, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 510, 40, 30));
 
-        tglst.setDateFormatString("yyyy-MM-dd");
-        tglst.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        tglst.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                tglstPropertyChange(evt);
-            }
-        });
-        SETTING.add(tglst, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 610, 280, 50));
-
         hakaksescb.setBackground(new java.awt.Color(244, 239, 224));
         hakaksescb.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         hakaksescb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih Akses --", "Pemilik", "Administrator", "Karyawan" }));
@@ -2104,12 +2143,6 @@ public class Dashboard extends javax.swing.JFrame {
         laporanpic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/laporanpic.png"))); // NOI18N
         LAPORANSELECT2.add(laporanpic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 330, 50));
 
-        laporansmtgl1field.setDateFormatString("yyyy-MM-dd");
-        LAPORANSELECT2.add(laporansmtgl1field, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 240, 40));
-
-        laporansmtgl2field.setDateFormatString("yyyy-MM-dd");
-        LAPORANSELECT2.add(laporansmtgl2field, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 240, 40));
-
         carilsmfield.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         carilsmfield.setBorder(null);
         carilsmfield.setOpaque(false);
@@ -2233,12 +2266,6 @@ public class Dashboard extends javax.swing.JFrame {
         carilpjfield.setBorder(null);
         carilpjfield.setOpaque(false);
         LAPORANSELECT1.add(carilpjfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1610, 150, 240, 40));
-
-        laporanpjtgl1field.setDateFormatString("yyyy-MM-dd");
-        LAPORANSELECT1.add(laporanpjtgl1field, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 240, 40));
-
-        laporanpjtgl2field.setDateFormatString("yyyy-MM-dd");
-        LAPORANSELECT1.add(laporanpjtgl2field, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 240, 40));
 
         tampilkanlpjbtn.setOpaque(false);
         tampilkanlpjbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2966,59 +2993,6 @@ public class Dashboard extends javax.swing.JFrame {
         BARANG.add(bgBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(BARANG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, -1));
-
-        DASHBOARD.setOpaque(false);
-        DASHBOARD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        dashboardpic.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 30)); // NOI18N
-        dashboardpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/dashboardpic1.png"))); // NOI18N
-        dashboardpic.setText("     Dashboard");
-        DASHBOARD.add(dashboardpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 330, 50));
-
-        angkapenjualan1hr.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        angkapenjualan1hr.setText("Rp.0,0");
-        DASHBOARD.add(angkapenjualan1hr, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 410, 50));
-
-        textpenjualan1hr.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        textpenjualan1hr.setForeground(new java.awt.Color(130, 130, 130));
-        textpenjualan1hr.setText("Penjualan Selama Satu Hari");
-        DASHBOARD.add(textpenjualan1hr, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 260, -1));
-
-        angkastok.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        angkastok.setText("0");
-        DASHBOARD.add(angkastok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 240, 410, 50));
-
-        textstok.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        textstok.setForeground(new java.awt.Color(130, 130, 130));
-        textstok.setText("Stok Barang Total");
-        DASHBOARD.add(textstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 300, 260, -1));
-
-        angkatotalpembelian.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        angkatotalpembelian.setText("0 ORANG");
-        DASHBOARD.add(angkatotalpembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, 410, 50));
-
-        texttotalpembelian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        texttotalpembelian.setForeground(new java.awt.Color(130, 130, 130));
-        texttotalpembelian.setText("Total Pembeli Hari Ini");
-        DASHBOARD.add(texttotalpembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 260, -1));
-
-        angkajumlah.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        angkajumlah.setText("0");
-        DASHBOARD.add(angkajumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 480, 410, 50));
-
-        textjumlah.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        textjumlah.setForeground(new java.awt.Color(130, 130, 130));
-        textjumlah.setText("Jumlah Barang Masuk Hari Ini");
-        DASHBOARD.add(textjumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 540, 260, -1));
-
-        textgrafik.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        textgrafik.setText("Grafik Penjulan Selama Satu Minggu");
-        DASHBOARD.add(textgrafik, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 740, 630, 50));
-
-        bgDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DS1.png"))); // NOI18N
-        DASHBOARD.add(bgDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, -1));
-
-        getContentPane().add(DASHBOARD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1010));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -4361,11 +4335,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel laporanpic;
     private javax.swing.JLabel laporanpic1;
     private javax.swing.JLabel laporanpic2;
-    private com.toedter.calendar.JDateChooser laporanpjtgl1field;
-    private com.toedter.calendar.JDateChooser laporanpjtgl2field;
     private javax.swing.JComboBox<String> laporanselectcb;
-    private com.toedter.calendar.JDateChooser laporansmtgl1field;
-    private com.toedter.calendar.JDateChooser laporansmtgl2field;
     private javax.swing.JTextField namabarangfield;
     private javax.swing.JTextField namabarangtrfield;
     private javax.swing.JTextField namabarangtrfield1;
@@ -4420,7 +4390,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel textpenjualan1thn;
     private javax.swing.JLabel textstok;
     private javax.swing.JLabel texttotalpembelian;
-    private com.toedter.calendar.JDateChooser tglst;
     private javax.swing.JTextField totalbelanjafield;
     private javax.swing.JTextField totalhargabelipmfield;
     private javax.swing.JTextField totalhargapm;
