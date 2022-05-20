@@ -72,36 +72,7 @@ public class Transaksi extends javax.swing.JPanel {
         kolom.setPreferredWidth(120);
     }
     
-//    private void load_tabelkeranjang() {
-//        DefaultTableModel model = new DefaultTableModel();
-//        model.addColumn("No");
-//        model.addColumn("ID Transaksi");
-//        model.addColumn("ID Alat Musik");
-//        model.addColumn("Nama Alat Musik");
-//        model.addColumn("Harga");
-//        model.addColumn("Jumlah");
-//        model.addColumn("Total Harga");
-//        model.addColumn("Tanggal");
-//        
-//        try { 
-//            int no = 1;
-//            String sql2 = "SELECT transaksi.idtransaksi, alatmusik.idalatmusik, alatmusik.namaalatmusik, "
-//                    + "detail_transaksi.harga, detail_transaksi.jumlah, detail_transaksi.totalharga, "
-//                    + "detail_transaksi.tanggal FROM transaksi JOIN detail_transaksi ON transaksi.idtransaksi = "
-//                    + "detail_transaksi.idtransaksi JOIN alatmusik ON alatmusik.idalatmusik = "
-//                    + "detail_transaksi.idalatmusik WHERE transaksi.idtransaksi = '" + idtransaksitrfield.getText() + "' "
-//                    + "ORDER BY transaksi.idtransaksi";
-//            java.sql.Connection conn = (Connection) koneksi.configDB();
-//            java.sql.Statement stm2 = conn.createStatement();
-//            java.sql.ResultSet res2 = stm2.executeQuery(sql2);
-//            while (res2.next()){
-//                model.addRow (new Object[] {no++, res2.getString(1), res2.getString(2), res2.getString(3), res2.getString(4),
-//                    res2.getString(5), res2.getString(6), res2.getString(7)});
-//            }
-//        tabelkeranjang.setModel(model);
-//        } catch (SQLException e){
-//        }
-//    }
+
     
     private void lebar_tabelkeranjang(){
         TableColumn kolom;
