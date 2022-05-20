@@ -82,30 +82,25 @@ public class Produkmasuk extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtPencarian = new javax.swing.JTextField();
+        txtKembalian = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelPertama = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        txtPencarian1 = new javax.swing.JTextField();
-        txtPencarian2 = new javax.swing.JTextField();
-        txtPencarian3 = new javax.swing.JTextField();
-        txtPencarian4 = new javax.swing.JTextField();
-        txtPencarian5 = new javax.swing.JTextField();
-        txtPencarian6 = new javax.swing.JTextField();
+        txtPencarian = new javax.swing.JTextField();
+        txtSupplier = new javax.swing.JTextField();
+        txtJumlah = new javax.swing.JTextField();
+        txtHargaBeli = new javax.swing.JTextField();
+        txtTotalHarga = new javax.swing.JTextField();
+        txtBayar = new javax.swing.JTextField();
         opsiTabel = new javax.swing.JComboBox<>();
         background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtPencarian.setBorder(null);
-        txtPencarian.setOpaque(false);
-        txtPencarian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarianActionPerformed(evt);
-            }
-        });
-        add(txtPencarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 799, 470, 40));
+        txtKembalian.setBorder(null);
+        txtKembalian.setOpaque(false);
+        add(txtKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 799, 470, 40));
 
         TabelPertama.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,6 +113,11 @@ public class Produkmasuk extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TabelPertama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelPertamaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TabelPertama);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 800, 290));
@@ -137,59 +137,29 @@ public class Produkmasuk extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 552, 970, 400));
 
-        txtPencarian1.setBorder(null);
-        txtPencarian1.setOpaque(false);
-        txtPencarian1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarian1ActionPerformed(evt);
-            }
-        });
-        add(txtPencarian1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 137, 230, 30));
+        txtPencarian.setBorder(null);
+        txtPencarian.setOpaque(false);
+        add(txtPencarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 137, 230, 30));
 
-        txtPencarian2.setBorder(null);
-        txtPencarian2.setOpaque(false);
-        txtPencarian2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarian2ActionPerformed(evt);
-            }
-        });
-        add(txtPencarian2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 410, 30));
+        txtSupplier.setBorder(null);
+        txtSupplier.setOpaque(false);
+        add(txtSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 410, 30));
 
-        txtPencarian3.setBorder(null);
-        txtPencarian3.setOpaque(false);
-        txtPencarian3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarian3ActionPerformed(evt);
-            }
-        });
-        add(txtPencarian3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 350, 240, 30));
+        txtJumlah.setBorder(null);
+        txtJumlah.setOpaque(false);
+        add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 350, 240, 30));
 
-        txtPencarian4.setBorder(null);
-        txtPencarian4.setOpaque(false);
-        txtPencarian4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarian4ActionPerformed(evt);
-            }
-        });
-        add(txtPencarian4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 350, 240, 30));
+        txtHargaBeli.setBorder(null);
+        txtHargaBeli.setOpaque(false);
+        add(txtHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 350, 240, 30));
 
-        txtPencarian5.setBorder(null);
-        txtPencarian5.setOpaque(false);
-        txtPencarian5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarian5ActionPerformed(evt);
-            }
-        });
-        add(txtPencarian5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 570, 470, 40));
+        txtTotalHarga.setBorder(null);
+        txtTotalHarga.setOpaque(false);
+        add(txtTotalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 570, 470, 40));
 
-        txtPencarian6.setBorder(null);
-        txtPencarian6.setOpaque(false);
-        txtPencarian6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPencarian6ActionPerformed(evt);
-            }
-        });
-        add(txtPencarian6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 684, 470, 40));
+        txtBayar.setBorder(null);
+        txtBayar.setOpaque(false);
+        add(txtBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 684, 470, 40));
 
         opsiTabel.setBackground(new java.awt.Color(255, 255, 255));
         opsiTabel.setEditable(true);
@@ -207,41 +177,23 @@ public class Produkmasuk extends javax.swing.JPanel {
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPencarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarianActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarianActionPerformed
-
-    private void txtPencarian1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarian1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarian1ActionPerformed
-
-    private void txtPencarian2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarian2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarian2ActionPerformed
-
-    private void txtPencarian3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarian3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarian3ActionPerformed
-
-    private void txtPencarian4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarian4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarian4ActionPerformed
-
-    private void txtPencarian5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarian5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarian5ActionPerformed
-
-    private void txtPencarian6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarian6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarian6ActionPerformed
-
     private void opsiTabelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_opsiTabelItemStateChanged
         if(opsiTabel.getSelectedIndex() == 0){
             load_tabelbarangpm();
+            
         }else{
             load_tabelsupplierpm();
         }
     }//GEN-LAST:event_opsiTabelItemStateChanged
+
+    public int xpengalihan;
+    private void TabelPertamaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelPertamaMouseClicked
+        int x = TabelPertama.getSelectedRow();
+        
+        String id = TabelPertama.getValueAt(x, 1).toString();
+        String nama = TabelPertama.getValueAt(x, 2).toString();
+        String harga = TabelPertama.getValueAt(x,3).toString();
+    }//GEN-LAST:event_TabelPertamaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -251,12 +203,12 @@ public class Produkmasuk extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JComboBox<String> opsiTabel;
+    private javax.swing.JTextField txtBayar;
+    private javax.swing.JTextField txtHargaBeli;
+    private javax.swing.JTextField txtJumlah;
+    private javax.swing.JTextField txtKembalian;
     private javax.swing.JTextField txtPencarian;
-    private javax.swing.JTextField txtPencarian1;
-    private javax.swing.JTextField txtPencarian2;
-    private javax.swing.JTextField txtPencarian3;
-    private javax.swing.JTextField txtPencarian4;
-    private javax.swing.JTextField txtPencarian5;
-    private javax.swing.JTextField txtPencarian6;
+    private javax.swing.JTextField txtSupplier;
+    private javax.swing.JTextField txtTotalHarga;
     // End of variables declaration//GEN-END:variables
 }
