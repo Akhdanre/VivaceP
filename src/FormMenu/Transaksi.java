@@ -5,7 +5,9 @@
  */
 package FormMenu;
 
+import static com.barcodelib.barcode.a.f.e.E;
 import com.sun.glass.events.KeyEvent;
+import static com.sun.javafx.scene.CameraHelper.project;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import java.io.File;
@@ -22,6 +24,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -162,6 +172,7 @@ public class Transaksi extends javax.swing.JPanel {
         btnTambahpbl = new javax.swing.JPanel();
         Simpan = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        percobaan = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
@@ -258,16 +269,21 @@ public class Transaksi extends javax.swing.JPanel {
         });
         add(btnTambahpbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1365, 238, 138, 37));
 
-        Simpan.setOpaque(false);
         Simpan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SimpanMouseClicked(evt);
             }
         });
-        add(Simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1306, 876, 240, 68));
+        add(Simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 80, 240, 68));
 
         jPanel2.setOpaque(false);
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 875, 238, 68));
+        add(percobaan, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 100, 180, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Tambahkan1.png"))); // NOI18N
@@ -357,28 +373,45 @@ public class Transaksi extends javax.swing.JPanel {
     }//GEN-LAST:event_txtUangDibayarKeyPressed
 
     private void SimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SimpanMouseClicked
-        Date date = new Date();
-        DateFormat formattanggal = new SimpleDateFormat("YYYY-MM-dd");
-        String sekarang = formattanggal.format(date);
-        try{
-            String sql0 = "INSERT INTO transaksi VALUE('"+model2.getValueAt(0, 0)+"','"+txtPembeli.getText()+"','"+sekarang+"')";
-            Connection con = (Connection) koneksi.configDB();
-            PreparedStatement pst0 = con.prepareStatement(sql0);
-            pst0.execute();
-            
-            for(int i = 0; i < model2.getRowCount(); i++){
-                String sql = "INSERT INTO detail_transaksi VALUE('"+model2.getValueAt(i, 0)+"',"
-                        + " '"+model2.getValueAt(i, 1)+"', '"+model2.getValueAt(i, 3)+"', "
-                        + "'"+model2.getValueAt(i, 4)+"', '"+model2.getValueAt(i, 5)+"', '"+model2.getValueAt(i, 6)+"')";
-                
-                PreparedStatement pst = con.prepareStatement(sql);
-                pst.execute();
-            }
-            
-            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+          try{
+              
+              JasperDesign jessp = JRXmlLoader.load("E:\\project java\\PercobaanProjek\\src\\FormMenu\\report1.jrxml");
+              
+              String sql = "SELECT\n" +
+"     transaksi.`idtransaksi` AS transaksi_idtransaksi,\n" +
+"     transaksi.`idpembeli` AS transaksi_idpembeli,\n" +
+"     transaksi.`tanggal` AS transaksi_tanggal,\n" +
+"     detail_transaksi.`idtransaksi` AS detail_transaksi_idtransaksi,\n" +
+"     detail_transaksi.`idalatmusik` AS detail_transaksi_idalatmusik,\n" +
+"     detail_transaksi.`harga` AS detail_transaksi_harga,\n" +
+"     detail_transaksi.`jumlah` AS detail_transaksi_jumlah,\n" +
+"     detail_transaksi.`totalharga` AS detail_transaksi_totalharga,\n" +
+"     detail_transaksi.`tanggal` AS detail_transaksi_tanggal,\n" +
+"     alatmusik.`idalatmusik` AS alatmusik_idalatmusik,\n" +
+"     alatmusik.`namaalatmusik` AS alatmusik_namaalatmusik,\n" +
+"     alatmusik.`harga_jual` AS alatmusik_harga_jual,\n" +
+"     alatmusik.`harga_beli` AS alatmusik_harga_beli,\n" +
+"     alatmusik.`stok` AS alatmusik_stok\n" +
+"     \n" +
+"	 FROM `transaksi` transaksi INNER JOIN `detail_transaksi` detail_transaksi\n" +
+"     ON transaksi.`idtransaksi` = detail_transaksi.`idtransaksi`\n" +
+"     INNER JOIN `alatmusik` alatmusik \n" +
+"     ON detail_transaksi.`idalatmusik` = alatmusik.`idalatmusik`\n" +
+"     WHERE transaksi.idtransaksi = '"+percobaan.getText()+"'";
+              
+               Connection con = (Connection) koneksi.configDB();
+                JRDesignQuery newQuery = new JRDesignQuery();
+                newQuery.setText(sql);
+                jessp.setQuery(newQuery);
+                JasperReport js = JasperCompileManager.compileReport(jessp);
+                JasperPrint jp = JasperFillManager.fillReport(js, null, con);
+              
+                JasperViewer.viewReport(jp);
+              
+          }
+          catch(Exception e){
+              JOptionPane.showMessageDialog(null, e);
+          }
     }//GEN-LAST:event_SimpanMouseClicked
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
@@ -431,6 +464,31 @@ public class Transaksi extends javax.swing.JPanel {
         txtJumlah.setText(null);
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+                Date date = new Date();
+        DateFormat formattanggal = new SimpleDateFormat("YYYY-MM-dd");
+        String sekarang = formattanggal.format(date);
+        try{
+            String sql0 = "INSERT INTO transaksi VALUE('"+model2.getValueAt(0, 0)+"','"+txtPembeli.getText()+"','"+sekarang+"')";
+            Connection con = (Connection) koneksi.configDB();
+            PreparedStatement pst0 = con.prepareStatement(sql0);
+            pst0.execute();
+            
+            for(int i = 0; i < model2.getRowCount(); i++){
+                String sql = "INSERT INTO detail_transaksi VALUE('"+model2.getValueAt(i, 0)+"',"
+                        + " '"+model2.getValueAt(i, 1)+"', '"+model2.getValueAt(i, 3)+"', "
+                        + "'"+model2.getValueAt(i, 4)+"', '"+model2.getValueAt(i, 5)+"', '"+model2.getValueAt(i, 6)+"')";
+                
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.execute();
+            }
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_jPanel2MouseClicked
+
     public void tambahtotalkeranjang(){
         int hasil = 0 ;
         for(int i = 0; i < model2.getRowCount();i++){
@@ -452,6 +510,7 @@ public class Transaksi extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField percobaan;
     private javax.swing.JTable tabelbarangtr;
     public javax.swing.JTable tabelkeranjang;
     private javax.swing.JTextField txtJumlah;

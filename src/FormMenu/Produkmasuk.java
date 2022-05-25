@@ -92,8 +92,9 @@ public class Produkmasuk extends javax.swing.JPanel {
      
     public Produkmasuk() {
         initComponents();
-        load_tabelbarangpm();
+       // load_tabelsupplierpm();
         tabelkeranjang();
+        pengalihan();
     }
 
     /**
@@ -195,6 +196,11 @@ public class Produkmasuk extends javax.swing.JPanel {
                 opsiTabelItemStateChanged(evt);
             }
         });
+        opsiTabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opsiTabelActionPerformed(evt);
+            }
+        });
         add(opsiTabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 200, -1));
 
         btnTambahkan.setOpaque(false);
@@ -210,21 +216,7 @@ public class Produkmasuk extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opsiTabelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_opsiTabelItemStateChanged
-        if(opsiTabel.getSelectedIndex() == 0){
-            load_tabelsupplierpm();
-            String id = model.getValueAt(xpgl ,1).toString();
-            
-            idpgl0 = id;
-        }else{
-            load_tabelbarangpm();
-            String id = TabelPertama.getValueAt(xpgl, 1).toString();
-            String nama = TabelPertama.getValueAt(xpgl, 2).toString();
-            String harga = TabelPertama.getValueAt(xpgl,3).toString();
-            
-            idpgl1 = id;
-            namapgl= nama;
-            hargapgl = harga;
-        }
+ 
     }//GEN-LAST:event_opsiTabelItemStateChanged
     public int xpgl;
     private void TabelPertamaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelPertamaMouseClicked
@@ -269,6 +261,28 @@ public class Produkmasuk extends javax.swing.JPanel {
         
         model3.addRow( new Object[] {code, idpgl0, idpgl1, namapgl, hargapgl, Jumlah, hargatotal, sekarang});
     }//GEN-LAST:event_btnTambahkanMouseClicked
+
+    private void pengalihan(){
+        
+    }
+    
+    private void opsiTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opsiTabelActionPerformed
+        if(opsiTabel.getSelectedItem() == "SUPPLIER"){
+            load_tabelsupplierpm();
+            String id = model.getValueAt(xpgl ,1).toString();
+            
+            idpgl0 = id;
+        }else {
+            load_tabelbarangpm();
+            String id = TabelPertama.getValueAt(xpgl, 1).toString();
+            String nama = TabelPertama.getValueAt(xpgl, 2).toString();
+            String harga = TabelPertama.getValueAt(xpgl,3).toString();
+            
+            idpgl1 = id;
+            namapgl= nama;
+            hargapgl = harga;
+        }
+    }//GEN-LAST:event_opsiTabelActionPerformed
   
      public void tambahtotalkeranjang(){
         int hasil = 0 ;
